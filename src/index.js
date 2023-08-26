@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { Auth0Provider } from '@auth0/auth0-react';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,7 +28,15 @@ const analytics = getAnalytics(app);
 
 ReactDOM.render(
   <React.StrictMode>
+  <Auth0Provider 
+  domain="dev-p7au67ss1pa1ri3z.us.auth0.com"
+  clientId="wmhNLmnfyc1rjDMizIMrDC9PPT6eUN9e"
+  authorizationParams={{
+    redirect_uri: window.location.origin
+  }}>
+
     <App />
+  </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
